@@ -53,6 +53,3 @@ The posts collection includes MongoDB validation rules that ensure:
 - Title length: 1-100 characters
 - Content: Must not be empty
 - Tags: Must be an array of strings
-
-## Seeding the Database
-To seed the database with initial data, run the `seed` command.
