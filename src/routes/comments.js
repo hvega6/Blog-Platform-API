@@ -1,3 +1,5 @@
+import express from 'express';
+
 const createCommentRoutes = (db) => {
     const router = express.Router();
   
@@ -42,3 +44,6 @@ const createCommentRoutes = (db) => {
   
     return router;
   };
+
+// Export the createCommentRoutes function
+export default createCommentRoutes;
