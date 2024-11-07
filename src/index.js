@@ -2,6 +2,12 @@ import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import { MongoClient, ObjectId } from 'mongodb';
+import createUserRoutes from './routes/users.js';
+import createCommentRoutes from './routes/comments.js';
+import createPostRoutes from './routes/posts.js';
+
+// Import the seed script
+import '../seed.js';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/blogdb';
+const uri = process.env.MONGODB_URI;
 let db;
 
 async function connectToDatabase() {
@@ -65,9 +71,9 @@ async function connectToDatabase() {
 
 await connectToDatabase();
 // Initialize routes
-app.use('/api/users', createUserRoutes(db));
-app.use('/api/posts', createPostRoutes(db));
-app.use('/api/comments', createCommentRoutes(db));
+app.use('/users', createUserRoutes(db));
+app.use('/comments', createCommentRoutes(db));
+app.use('/posts', createPostRoutes(db));
 
 // Start server
 app.listen(port, () => {
