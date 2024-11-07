@@ -2,7 +2,7 @@
 import 'dotenv/config';
 import { MongoClient, ObjectId } from 'mongodb';
 
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/blogdb';
+const uri = process.env.MONGODB_URI;
 
 async function seed() {
   const client = new MongoClient(uri);
