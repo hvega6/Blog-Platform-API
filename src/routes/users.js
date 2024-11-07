@@ -1,3 +1,5 @@
+import express from 'express';
+
 const createUserRoutes = (db) => {
     const router = express.Router();
     
@@ -39,3 +41,4 @@ const createUserRoutes = (db) => {
   
     return router;
   };
+export default createUserRoutes;
