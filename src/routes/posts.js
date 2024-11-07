@@ -1,3 +1,5 @@
+import express from 'express';
+
 const createPostRoutes = (db) => {
     const router = express.Router();
   
@@ -76,3 +78,6 @@ const createPostRoutes = (db) => {
   
     return router;
   };
+
+// Export the createPostRoutes function
+export default createPostRoutes;
