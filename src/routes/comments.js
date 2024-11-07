@@ -1,4 +1,5 @@
 import express from 'express';
+import { ObjectId } from 'mongodb';
 
 const createCommentRoutes = (db) => {
     const router = express.Router();
@@ -15,6 +16,15 @@ const createCommentRoutes = (db) => {
         res.status(201).json(result);
       } catch (err) {
         res.status(400).json({ error: err.message });
+      }
+    });
+  
+    router.get('/', async (req, res) => {
+      try {
+        const comments = await db.collection('comments').find().toArray();
+        res.json(comments);
+      } catch (err) {
+        res.status(500).json({ error: err.message });
       }
     });
   
